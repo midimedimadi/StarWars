@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css" type="text/css">
+    <title>Catalogue</title>
+</head>
+<body>
+    <input id="myInput" type="text" onkeyup="myFunction()" placeholder="Search for categories(climate/residents)">
+    <h1 class="text">Tatooine</h1>
+    <div id="climate"><p class="text1">The climate of this planet is arid</p>
+    <p>The terrain of this planet is desert</p></div>
+    <div id="residents"><p class="text2">There are 200000 residents on Tatooine</p>
+        <p>Luke Skywalker, one of the main male characters in Star Wars is a resident of Tatooine</p></div>
+</body>
+<script>
+    climate = document.getElementById("climate")
+    residents = document.getElementById("residents")
+
+    function myFunction() {
+    var input, filter, li, i, bed_sec, pl_sec;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    li = ['CLIMATE', 'RESIDENTS']
+  
+    for (i = 0; i < li.length; i++) {
+      a = li[i];
+      if(input.value == '') {
+        console.log('exs')
+        climate.style.display ='block'
+        residents.style.display ='block'
+      }
+      if (filter == a) {
+        if (i == 0){
+          console.log('yes')
+          climate.style.display ='block'
+          residents.style.display ='none'
+        }
+        if (i == 1){
+          console.log('yes')
+          climate.style.display = 'none'
+          residents.style.display ='block'
+        }
+      } 
+      
+    }
+  }
+</script>
+</html>

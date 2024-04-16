@@ -1,0 +1,100 @@
+body{
+    background-color: black;
+}
+
+#ship{
+    position: absolute;
+    bottom: 42%;
+}
+
+.green{
+  width: 90px;
+  height: 80px;
+}
+.text{
+  position: absolute;
+  top: 26%;
+  right: 36.3%;
+  font-family:Arial, Helvetica, sans-serif monospace;
+  font-size: 24px;
+  color: antiquewhite;
+  display: none;
+}
+
+#text1{
+  color:darkgray;
+  right: 34.3%;
+}
+
+#arrowUp{
+  top: 10%;
+  right: 35.2%;
+}
+
+.notglowUp{
+  position: absolute;
+}
+
+.notglowDown{
+  position: absolute;
+}
+
+#arrowDown{
+  bottom: 10%;
+  right: 35.2%;
+}
+
+.glowUp {
+  display: none;
+  position: fixed;
+  cursor: pointer;
+}
+
+.glowDown {
+  display: none;
+  position: fixed;
+  cursor: pointer;
+}
+
+@keyframes slideInship {
+    0% {
+      transform: translateX(-500%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(-250%);
+      opacity: 1;
+    }
+  }
+  
+  #ship {
+    animation: slideInship 1s ease-in-out forwards;
+  }
+
+#planet1{
+  position: absolute;
+  margin-left: 2%;
+  right: 30%;
+  bottom: 33%;
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+#planet2{
+  position: absolute;
+  margin-left: 2%;
+  right: 30%;
+  bottom: 33%;
+  display: none;
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translateY(-300%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main_page.css" type="text/css">
+    <title>Main page</title>
+</head>
+<body><center>
+    <a href="menu.html"><img src="images/arrow.png" class="green"></a>
+    <img src="images/starship.png" id="ship">
+    <p class="text">Tatooine</p>
+    <p id="text1" class="text">Not available</p>
+    <a href="tatooine.html"><img src="images/tatooine.png" id="planet1" onmouseenter="Tatooine()" onmouseleave="notTatooine()"></a>
+    <img src="images/alderaan.png" id="planet2" onmouseenter="Alderaan()" onmouseleave="notAlderaan()">
+    <div onmouseleave="notglowup()" onclick="planetchange()"><img src="images/arrow up.png" id="arrowUp" class="notglowUp" onmouseenter="glowup()">
+    <img src="images/arrow up glow.png" id="arrowUp" class="glowUp"></div>
+    <div onmouseleave="notglowdown()" onclick="planetchange1()"><img src="images/arrow down.png" id="arrowDown" class="notglowDown" onmouseenter="glowdown()">
+    <img src="images/arrow down glow.png" id="arrowDown" class="glowDown"></div>
+</center>
+</body>
+<script src="main_page.js"></script>
+</html>

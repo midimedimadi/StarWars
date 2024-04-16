@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tatooine.css" type="text/css">
+    <title>Tatooine</title>
+</head>
+<body><center>
+    <img src="images/visit.png" id="visit">
+    <img src="images/luke.png" id="luke">
+    <h1>TATOOINE</h1>
+    <p id="zero">
+        This is Tatooine.
+    </p>
+    <p id="one">
+        Tatooine is a planet in the Star Wars universe.
+    </p>
+    <p id="three">
+        
+    </p>
+    <p id="two"> Try clicking on different parts of the image! </p>
+    <p id="tw">And after exploring get into the menu</p>
+    <div id="sand" onclick="weather()"></div>
+    <div id="res" onclick="residents()"></div>
+    <div id="act" onclick="skywalker()"></div>
+</center>
+</body>
+<script>
+    let cl, r, lu
+    const t = document.querySelector("#zero")
+    const text = document.querySelector("#one")
+    const text2 = document.querySelector("#three")
+    const visit = document.querySelector("#visit")
+    const luke = document.querySelector("#luke")
+    const act = document.querySelector("#act")
+  function weather(){
+    fetch('https://swapi.dev/api/planets/1/')
+    .then(response => response.json())
+    .then(data => {
+        const climate = data.climate;
+        const terrain = data.terrain;
+        text.textContent = `The climate of this planet is ${climate}`;
+        text.textContent = text.textContent.replace(/<p>/g, "").replace(/<\/p>/g, "");
+        text.style.right = "16.7%"
+        text2.textContent = `The terrain of this planet is ${terrain}`;
+        text2.textContent = text2.textContent.replace(/<p>/g, "").replace(/<\/p>/g, "");
+        text2.style.right = "15.6%"
+        text2.style.top = "30%"
+        cl = 1
+        localStorage.setItem("Climate", cl)
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });}
+
+    function residents(){
+        visit.style.display = "none"
+        luke.style.display = "block"
+        act.style.display = "block"
+
+        fetch('https://swapi.dev/api/planets/1/')
+        .then(response => response.json())
+        .then(data => {
+            const population = data.population;
+            const terrain = data.terrain;
+            text.textContent = `The population of Tattoine is equal to ${population}`;
+            text.textContent = text.textContent.replace(/<p>/g, "").replace(/<\/p>/g, "");
+            text.style.right = "4%"
+            r = 1
+            localStorage.setItem("Residents", r)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    }
+
+    function skywalker(){
+        fetch('https://swapi.dev/api/people/1/')
+        .then(response => response.json())
+        .then(data => {
+            const name = data.name;
+            const terrain = data.terrain;
+            const gender = data.gender;
+            t.textContent = `This is ${name}`;
+            t.textContent = t.textContent.replace(/<p>/g, "").replace(/<\/p>/g, "");
+            t.style.right = "4%"
+            text.textContent = `He is a ${gender} Star Wars character`;
+            text.textContent = text.textContent.replace(/<p>/g, "").replace(/<\/p>/g, "");
+            text.style.right = "4%"
+            lu = 1
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    }
+</script>
+</html>
